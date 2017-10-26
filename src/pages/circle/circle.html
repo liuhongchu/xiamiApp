@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      圈子
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="cards-bg social-cards">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="正在刷新">
+        </ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let card of cardsimage">
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="card.imageAvatar">
+      </ion-avatar>
+      <h2 [innerHTML]="card.name"></h2>
+      <!--<p [innerHTML]="card.title"></p>-->
+    </ion-item>
+    <img [src]="card.image">
+
+    <ion-card-content>
+      <p [innerHTML]="card.description"></p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-left>
+          <ion-icon name='thumbs-up' [innerHTML]="card.comments"></ion-icon>点赞
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-left>
+          <ion-icon name='text' [innerHTML]="card.comments"></ion-icon>评论
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+
+  <!--<ion-card>-->
+    <!--<ion-item>-->
+      <!--<ion-avatar item-start>-->
+        <!--<img src="assets/img/sarah-avatar.png.jpeg">-->
+      <!--</ion-avatar>-->
+      <!--<h2>Sarah Connor</h2>-->
+      <!--<p>May 12, 1984</p>-->
+    <!--</ion-item>-->
+
+    <!--<img src="assets/img/advance-card-tmntr.jpg">-->
+
+    <!--<ion-card-content>-->
+      <!--<p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>-->
+    <!--</ion-card-content>-->
+
+    <!--<ion-row>-->
+      <!--<ion-col>-->
+        <!--<button ion-button color="primary" clear small icon-left>-->
+          <!--<ion-icon name='thumbs-up'></ion-icon>-->
+          <!--30 Likes-->
+        <!--</button>-->
+      <!--</ion-col>-->
+      <!--<ion-col>-->
+        <!--<button ion-button color="primary" clear small icon-left>-->
+          <!--<ion-icon name='text'></ion-icon>-->
+          <!--64 Comments-->
+        <!--</button>-->
+      <!--</ion-col>-->
+      <!--<ion-col align-self-center text-center>-->
+        <!--<ion-note>-->
+          <!--30yr ago-->
+        <!--</ion-note>-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+  <!--</ion-card>-->
+
+</ion-content>
+
+<style>
+  .social-cards ion-col {
+    padding: 0;
+  }
+</style>
